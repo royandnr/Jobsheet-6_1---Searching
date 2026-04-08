@@ -17,7 +17,7 @@ public class MahasiswaDemo22 {
             String kelas = sc.nextLine();
             System.out.print("IPK : ");
             String ip = sc.nextLine();
-            double ipk = Double.parseDouble(ip);
+            Double ipk = Double.parseDouble(ip);
             System.out.println("-------------------");
 
             list.tambah(new Mahasiswa22(nim, nama, kelas, ipk));
@@ -33,12 +33,29 @@ public class MahasiswaDemo22 {
         System.out.println("Masukkan ipk mahasiswa yang ingin dicari : ");
         System.out.println("IPK : ");
         String input = sc.nextLine();
-        Double cari = Double.parseDouble(input);
+        double cari = sc.nextDouble();
 
         System.out.println("menggunakan sequential searching");
-        int pos = list.sequentialSearching(cari); // FIX
-        list.tampilPosisi(cari, pos);
-        list.tampilDataSearch(cari, pos);
+        double posisi = list.sequentialSearching(cari);
+        int pss = list.sequentialSearching(cari); // FIX
+        list.tampilPosisi(cari, pss);
+        list.tampilDataSearch(cari, pss);
+
+        // melakukan pencarian data binary
+        System.out.println("---------------------------");
+        System.out.println("Pencarian Data");
+        System.out.println("---------------------------");
+        System.out.println("Masukkan ipk mahasiswa yang ingin dicari : ");
+        System.out.println("IPK : ");
+        double cari2 = sc.nextDouble();
+        System.out.println("----------------------------");
+        System.out.println("menggunakan binary searching");
+        System.out.println("----------------------------");
+        double posisi2 = list.FindBinarySearch(cari2, 0, jumMhs - 1);
+        int pss2 = (int) posisi2; // FIX
+        list.tampilPosisi(cari2, pss2);
+        list.tampilDataSearch(cari2, pss2);
+
 
         // TAMBAH DATA LAGI (SESUAI KODE ASLI KAMU)
         Mahasiswa22 m1 = new Mahasiswa22("123", "Zidan", "2A", 3.2);
