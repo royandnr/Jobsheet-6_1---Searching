@@ -2,6 +2,23 @@ public class MahasiswaBerprestasi22 {
     Mahasiswa22[] listMhs = new Mahasiswa22[10]; // diperbesar
     int idx;
 
+    int FindBinarySearch(double cari, int left, int right) {
+        int mid;
+        if (right >= left) {
+            mid = (left + right) / 2;
+            if (cari == listMhs[mid].ipk) {
+                return (mid);
+            } 
+            else if (listMhs[mid].ipk > cari) {
+                return FindBinarySearch(cari, left, mid - 1);
+            } 
+            else {
+                return FindBinarySearch(cari, mid + 1, right);
+            }
+        }
+        return -1;
+    }
+
     int sequentialSearching(double cari) {
         int posisi = -1;
         for (int j = 0; j < idx; j++) { // pakai idx
